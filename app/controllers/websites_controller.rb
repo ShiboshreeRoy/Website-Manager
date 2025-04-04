@@ -4,6 +4,7 @@ class WebsitesController < ApplicationController
 
   def index
     @websites = Website.all
+    @website = Website.all
   end
 
   def show; end

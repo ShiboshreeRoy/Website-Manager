@@ -16,7 +16,7 @@
               <th>Name</th>
               <th>URL</th>
               <th>Description</th>
-              <th>User</th>
+              
               <th class="text-center">Actions</th>
             
 
@@ -28,7 +28,6 @@
                 <td class="fw-bold"><%= website.name %></td>
                 <td><%= link_to website.url, website.url, target: "_blank", class: "text-decoration-none text-primary" %></td>
                 <td><%= website.description %></td>
-                <td><%= current_manager.email.split("@").first.capitalize %></td>
                 <td class="d-flex justify-content-center align-items-center gap-3 bg-light ">
                   <%= link_to 'Edit', edit_website_path(website), class: "btn btn-warning btn-sm fw-bold rounded-pill px-3" %>
                   <%= link_to 'Views', website, class: "btn btn-danger btn-sm fw-bold rounded-pill px-3" %>

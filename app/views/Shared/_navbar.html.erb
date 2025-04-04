@@ -15,17 +15,22 @@
       </ul>
       <form class="d-flex" >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if manager_signed_in?%>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Profile
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><%= link_to"Sign Out",destroy_manager_session_path, data: {turbo_method: :delete},class: "dropdown-item" %></li>
+            <li><%= link_to"Edit Profile",edit_manager_registration_path, class: "dropdown-item hover:text-primary" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
+        <% else %>
+        <%= link_to "Sign In",new_manager_session_path, class: "btn btn-primary me-2"%>
+        <%= link_to "Sign Un",new_manager_registration_path, class: "btn btn-info me-2"%>
+        <%end%>
         </ul>
       </form>
     </div>

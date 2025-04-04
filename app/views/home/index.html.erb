@@ -1,0 +1,92 @@
+<style>
+  .main {
+    
+    min-height: 100vh; /* Full screen height */
+    background-color: #f8f9fa; /* Light background */
+  }
+
+  .landing-card {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
+  }
+
+  .landing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .landing-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 50px; /* Rounded button corners */
+    transition: background-color 0.3s ease;
+  }
+
+  .landing-btn.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border: none;
+  }
+
+  .landing-btn.btn-primary:hover {
+    background-color: #0056b3; /* Darker primary color on hover */
+  }
+
+  .landing-btn.btn-secondary {
+    background-color: #6c757d; /* Secondary button color */
+    border: none;
+  }
+
+  .landing-btn.btn-secondary:hover {
+    background-color: #495057; /* Darker secondary color on hover */
+  }
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #343a40; /* Darker text for title */
+  }
+
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #6c757d;
+    line-height: 1.5;
+  }
+
+  .d-flex {
+    gap: 20px; /* Space between buttons */
+  }
+
+  /* Responsive design */
+  @media (max-width: 576px) {
+    .landing-card {
+      max-width: 90%; /* Ensure card fits on small screens */
+    }
+  }
+</style>
+
+<div class="main">
+  <div class="container mt-5 d-flex justify-content-center alitem-items-center">
+    <div class="card landing-card mt-5 mb-2 p-5">
+      <h1 class="text-center text-primary mb-4">Welcome to Website Manager</h1>
+      <p class="text-center mb-4">Manage all your websites with ease, organize them efficiently, and make updates in just a few clicks.</p>
+      
+      <div class="d-flex justify-content-center gap-4">
+        <%if manager_signed_in?%>
+        <%= link_to 'Add New Website', new_website_path, class: "btn btn-primary landing-btn" %>
+        <%= link_to 'View Websites', websites_path, class: "btn btn-secondary landing-btn" %>
+        <% else %>
+         <%= link_to 'Add New Website', new_website_path, class: "btn btn-primary landing-btn disabled" %>
+        <%= link_to 'View Websites', websites_path, class: "btn btn-secondary landing-btn disabled" %>
+        
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
