@@ -18,6 +18,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render "Shared/navbar"%>
+      <div class="col-auto max-auto ">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
