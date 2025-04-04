@@ -1,0 +1,18 @@
+<%= form_with model: website, local: true do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :url, class: "form-label" %>
+    <%= f.text_field :url, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, class: "form-label" %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <%= f.submit 'Save Website', class: "btn btn-success" %>
+<% end %>

@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
+      <h2 class="fw-bold mb-0">Website List</h2>
+    </div>
+
+    <div class="card-body p-4">
+      <div class="d-flex justify-content-end mb-3">
+        <%= link_to 'Add Website', new_website_path, class: "btn btn-success fw-bold px-4 py-2 rounded-pill" %>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle shadow-sm">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>URL</th>
+              <th>Description</th>
+              <th>User</th>
+              <th class="text-center">Actions</th>
+            
+
+            </tr>
+          </thead>
+          <tbody>
+            <% @websites.each do |website| %>
+              <tr class="bg-light">
+                <td class="fw-bold"><%= website.name %></td>
+                <td><%= link_to website.url, website.url, target: "_blank", class: "text-decoration-none text-primary" %></td>
+                <td><%= website.description %></td>
+                <td><%= current_manager.email.split("@").first.capitalize %></td>
+                <td class="d-flex justify-content-center align-items-center gap-3 bg-light ">
+                  <%= link_to 'Edit', edit_website_path(website), class: "btn btn-warning btn-sm fw-bold rounded-pill px-3" %>
+                  <%= link_to 'Views', website, class: "btn btn-danger btn-sm fw-bold rounded-pill px-3" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

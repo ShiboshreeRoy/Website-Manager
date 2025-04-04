@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0"><%= @website.name %></h2>
+    </div>
+    <div class="card-body">
+      <p class="mb-3">
+        <strong>🌐 URL:</strong> 
+        <%= link_to @website.url, @website.url, target: "_blank", class: "text-decoration-none fw-bold text-primary" %>
+      </p>
+      <p class="mb-4">
+        <strong>📝 Description:</strong> <%= @website.description %>
+      </p>
+
+      <div class="d-flex gap-3">
+        <!-- Edit link -->
+        <%= link_to '✏️ Edit', edit_website_path(@website), class: "btn btn-warning btn-lg" %>
+        
+        <%= link_to "🗑️ Delete", website_path(@website), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }, class: "btn btn-danger btn-lg" %>
+        <!-- Back to List link -->
+        <%= link_to '📜 Back to List', websites_path, class: "btn btn-secondary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</div>

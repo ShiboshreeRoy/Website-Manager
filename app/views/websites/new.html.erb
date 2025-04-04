@@ -1,0 +1,12 @@
+<div class="container mt-5 p-4 bg-light shadow-lg rounded">
+  <h2 class="text-primary text-center">Add New Website</h2>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <%= render 'form', website: @website %>
+      <div class="d-flex justify-content-center mt-3">
+        <%= link_to 'Back', websites_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
